@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="Footer.css">
+    <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <img src="swiggylogo.jpg" alt="Swiggy" class="swiggy-logo">
+            <a href="index.html">Swiggy</a>
+            <select class="location-dropdown">
+                <option>Select Location</option>
+                <option>Delhi</option>
+                <option>Mumbai</option>
+                <option>Bangalore</option>
+            </select>
+        </div>
+        <div class="header-right">
+            <i class="fa-solid fa-percent"></i>
+            <a href="offers.html" class="menu-item">Offers</a>
+            <i class="fa-solid fa-life-ring"></i>
+            <a href="help.html" class="menu-item">Help</a>
+            <i class="fa-solid fa-user"></i>
+            <a href="signin.html" class="menu-item">Sign In</a>
+            <i class="fa-solid fa-cart-plus"></i>
+            <a href="cart.html" class="menu-item">Cart</a>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search..." class="search-bar">
+        </div>
+    </div>
+    
+    <!-- Signin Page -->
+
+    <section class="login-page">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    
+            <button type="submit">Login</button>
+        </form>
+    </section>
+    
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Login successful!');
+            this.reset();
+        });
+    </script>
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>For better experience, download the Swiggy app now</h3>
+            <p><a href="#">Download Android App</a> | <a href="#">Download iOS App</a></p>
+            <p>© 2025 Swiggy Limited</p>
+            
+            <div class="footer-sections">
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li>About Us</li>
+                        <li>Swiggy Corporate</li>
+                        <li>Careers</li>
+                        <li>Team</li>
+                        <li>Swiggy One</li>
+                        <li>Swiggy Instamart</li>
+                        <li>Swiggy Dineout</li>
+                        <li>Swiggy Genie</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact us</h4>
+                    <ul>
+                        <li>Help & Support</li>
+                        <li>Partner with us</li>
+                        <li>Ride with us</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li>Terms & Conditions</li>
+                        <li>Cookie Policy</li>
+                        <li>Privacy Policy</li>
+                        <li>Investor Relations</li>
+                        <li>Life at Swiggy</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Explore with Swiggy</h4>
+                    <ul>
+                        <li>Swiggy News</li>
+                        <li>Snackables</li>
+                        <li>Available in: Bangalore, Gurgaon, Hyderabad, Delhi, Mumbai, Pune</li>
+                        <li>679 cities</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Social Links</h4>
+                    <ul>
+                        <li>LinkedIn</li>
+                        <li>Instagram</li>
+                        <li>Facebook</li>
+                        <li>Pinterest</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="Footer.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Your Cart</h1>
+        </header>
+        
+        <section class="cart-row">
+            <!-- Burger -->
+            <div class="cart-item" data-price="150">
+                <img src="burger.jpg" alt="Burger">
+                <h2>Burger</h2>
+                <p>Price: ₹150</p>
+                <label for="burger-qty">Quantity:</label>
+                <input type="number" id="burger-qty" class="quantity" min="0" value="0">
+                <button class="confirm-btn">Confirm</button>
+            </div>
+
+            <!-- Pizza -->
+            <div class="cart-item" data-price="300">
+                <img src="pizza.jpg" alt="Pizza">
+                <h2>Pizza</h2>
+                <p>Price: ₹300</p>
+                <label for="pizza-qty">Quantity:</label>
+                <input type="number" id="pizza-qty" class="quantity" min="0" value="0">
+                <button class="confirm-btn">Confirm</button>
+            </div>
+
+            <!-- Ice Cream -->
+            <div class="cart-item" data-price="100">
+                <img src="icecream.jpg" alt="Ice Cream">
+                <h2>Ice Cream</h2>
+                <p>Price: ₹100</p>
+                <label for="icecream-qty">Quantity:</label>
+                <input type="number" id="icecream-qty" class="quantity" min="0" value="0">
+                <button class="confirm-btn">Confirm</button>
+            </div>
+
+            <!-- Sandwich -->
+            <div class="cart-item" data-price="200">
+                <img src="sandwich.jpg" alt="Sandwich">
+                <h2>Sandwich</h2>
+                <p>Price: ₹200</p>
+                <label for="sandwich-qty">Quantity:</label>
+                <input type="number" id="sandwich-qty" class="quantity" min="0" value="0">
+                <button class="confirm-btn">Confirm</button>
+            </div>
+        </section>
+
+        <!-- Total items and price -->
+        <div class="total-section">
+            <p>Total Items: <span id="total-items">0</span></p>
+            <p>Total Price: ₹<span id="total-price">0</span></p>
+        </div>
+
+        <!-- Checkout -->
+        <div class="checkout">
+            <button id="proceed-payment">Proceed to Payment</button>
+        </div>
+    </div>
+
+    <script>
+        const confirmButtons = document.querySelectorAll('.confirm-btn');
+        const totalItems = document.getElementById('total-items');
+        const totalPrice = document.getElementById('total-price');
+        const proceedPayment = document.getElementById('proceed-payment');
+
+        let itemCount = 0;
+        let priceCount = 0;
+
+        confirmButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const cartItem = button.parentElement;
+                const quantity = parseInt(cartItem.querySelector('.quantity').value);
+                const price = parseInt(cartItem.getAttribute('data-price'));
+
+                if (quantity > 0) {
+                    const prevQuantity = parseInt(button.getAttribute('data-quantity') || 0);
+                    const prevPrice = prevQuantity * price;
+
+                    // Remove previous values
+                    itemCount -= prevQuantity;
+                    priceCount -= prevPrice;
+
+                    // Add updated values
+                    itemCount += quantity;
+                    priceCount += quantity * price;
+
+                    totalItems.textContent = itemCount;
+                    totalPrice.textContent = priceCount;
+
+                    // Store the updated quantity
+                    button.setAttribute('data-quantity', quantity);
+                }
+            });
+        });
+
+        proceedPayment.addEventListener('click', () => {
+            if (itemCount > 0) {
+                alert(`Proceeding to payment with ${itemCount} items for ₹${priceCount}`);
+            } else {
+                alert('Please add items to your cart before proceeding.');
+            }
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>For better experience, download the Swiggy app now</h3>
+            <p><a href="#">Download Android App</a> | <a href="#">Download iOS App</a></p>
+            <p>© 2025 Swiggy Limited</p>
+            
+            <div class="footer-sections">
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li>About Us</li>
+                        <li>Swiggy Corporate</li>
+                        <li>Careers</li>
+                        <li>Team</li>
+                        <li>Swiggy One</li>
+                        <li>Swiggy Instamart</li>
+                        <li>Swiggy Dineout</li>
+                        <li>Swiggy Genie</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact us</h4>
+                    <ul>
+                        <li>Help & Support</li>
+                        <li>Partner with us</li>
+                        <li>Ride with us</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li>Terms & Conditions</li>
+                        <li>Cookie Policy</li>
+                        <li>Privacy Policy</li>
+                        <li>Investor Relations</li>
+                        <li>Life at Swiggy</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Explore with Swiggy</h4>
+                    <ul>
+                        <li>Swiggy News</li>
+                        <li>Snackables</li>
+                        <li>Available in: Bangalore, Gurgaon, Hyderabad, Delhi, Mumbai, Pune</li>
+                        <li>679 cities</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Social Links</h4>
+                    <ul>
+                        <li>LinkedIn</li>
+                        <li>Instagram</li>
+                        <li>Facebook</li>
+                        <li>Pinterest</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
